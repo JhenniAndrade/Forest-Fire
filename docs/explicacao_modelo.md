@@ -37,6 +37,32 @@ Usamos **vizinhança de Moore**, onde cada célula tem até 8 vizinhos ao redor.
 Implementamos este modelo em três versões:
 1. Sequencial (base)
 2. Paralela (threads)
-3. Distribuída (sockets/RMI)
+3. Distribuída (sockets)
 
 A versão sequencial é a referência para medir desempenho e correto funcionamento.
+
+---
+
+## 🌐 Implementação Distribuída
+
+A versão distribuída usa **comunicação via sockets TCP** para dividir o processamento entre múltiplas máquinas ou processos.
+
+### Componentes
+- **`servidor.py`** - Coordena a simulação e divide a matriz
+- **`cliente.py`** - Processa regiões da matriz remotamente
+
+### Divisão do Trabalho
+A matriz é dividida em regiões horizontais, onde cada cliente processa uma parte:
+```
+Matriz NxN → Regiões Horizontais
+┌─────────────────┐
+│ Região 1        │ ← Cliente 1
+├─────────────────┤
+│ Região 2        │ ← Cliente 2  
+└─────────────────┘
+```
+
+### Características
+- **Escalabilidade**: Pode usar múltiplas máquinas
+- **Sincronização**: Servidor aguarda todos os clientes a cada iteração
+- **Compatibilidade**: Mantém mesma lógica das outras versões
