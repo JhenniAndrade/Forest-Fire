@@ -34,7 +34,12 @@ def benchmark_threads():
         # Paralelo
         print("Threads\tTempo (s)\tSpeedup")
         for threads in threads_list:
-            tempo_par = simular_paralelo(n, iteracoes, threads, "linhas")
+            tempo_par = simular_paralelo_final(
+                n, 
+                iteracoes, 
+                threads, 
+                #"linhas"
+            )
             speedup = tempo_seq / tempo_par
             print(f"{threads}\t{tempo_par:.4f}\t\t{speedup:.2f}x")
         
