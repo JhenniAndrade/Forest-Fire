@@ -1,5 +1,10 @@
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from src.sequencial import simular
-from src.paralelo import simular_paralelo
+from src.paralelo import simular_paralelo_final
 
 def benchmark_threads():
     """Benchmark comparando sequencial vs paralelo com diferentes threads."""
