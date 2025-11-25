@@ -26,15 +26,19 @@ A cada iteração da simulação:
 
 ## 🚀 Como Executar
 
-### Teste da Versão Paralela
-```bash
-cd src
-python paralelo.py
-```
-
-### Benchmark Completo
+### Benchmark paralelo e sequencial
 ```bash
 python tests/benchmark.py
+```
+
+### Benchmark distribuido
+```bash
+python ./src/servidor.py 300 20 <NUMERO_DE_CLIENTES>
+```
+
+Terminais separados:
+```bash
+python ./src/cliente.py 8000 
 ```
 
 ## 📊 Resultados Obtidos
